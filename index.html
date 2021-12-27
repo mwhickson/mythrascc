@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mythras Character Creator</title>
+
+    <style>
+        html
+        {
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Mythras Character Creator</h1>
+
+    <fieldset>
+        <legend>Characteristics</legend>
+
+        <label><abbr title="Strength">STR</abbr></label>
+        <input type="number" id="strength" name="strength">
+
+        <label><abbr title="Constitution">CON</abbr></label>
+        <input type="number" id="constitution" name="constitution">
+
+        <label><abbr title="Size">SIZ</abbr></label>
+        <input type="number" id="size" name="size">
+
+        <label><abbr title="Dexterity">DEX</abbr></label>
+        <input type="number" id="dexterity" name="dexterity">
+
+        <label><abbr title="Intelligence">INT</abbr></label>
+        <input type="number" id="intelligence" name="intelligence">
+
+        <label><abbr title="Power">POW</abbr></label>
+        <input type="number" id="power" name="power">
+
+        <label><abbr title="Charisma">CHA</abbr></label>
+        <input type="number" id="charisma" name="charisma">
+
+        <!-- calculated/derived characteristics -->
+
+        <label>Action Points</label>
+        <input type="number" name="action_points">
+
+        <label>Damage Modifier</label>
+        <input type="number" name="damage_modifier">
+
+        <label><abbr title="Experience">Exp</abbr> Modifier</label>
+        <input type="number" name="experience_modifier">
+
+        <label>Healing Rate</label>
+        <input type="number" name="healing_rate">
+
+        <label>Initiative Bonus</label>
+        <input type="number" name="initiative_bonus">
+
+        <label>Luck Points</label>
+        <input type="number" name="luck_points">
+
+        <label>Magic/Power Points</label>
+        <input type="number" name="magic_power_points">
+    </fieldset>
+
+    <fieldset>
+        <legend>Standard Skills</legend>
+    </fieldset>
+
+    <fieldset>
+        <legend>Professional Skills</legend>
+    </fieldset>
+
+    <fieldset>
+        <legend>Passions</legend>
+    </fieldset>
+
+    <fieldset>
+        <legend>Combat Styles</legend>
+    </fieldset>
+
+    <fieldset>
+        <legend>Equipment & Notes</legend>
+    </fieldset>
+
+    <script>
+
+        let make_pool = die_sizes => [].concat(die_sizes)
+        let roll_die = sides => Math.floor(Math.random() * sides) + 1
+        let roll_pool = pool => pool.map(roll_die)
+        let sum_pool = pool => pool.reduce((a, b) => a + b)
+
+        let POOL_2D6 = make_pool([6, 6])
+        let POOL_3D6 = make_pool([6, 6, 6])
+
+    </script>
+
+</body>
+</html>
