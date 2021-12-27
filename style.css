@@ -50,12 +50,14 @@ legend
     padding: 0;
 }
 
-.attributes-list.primary
+.attributes-list.primary,
+.attributes-list.secondary
 {
     margin-bottom: 10px;
 }
 
-.attributes-list.primary li
+.attributes-list.primary li,
+.attributes-list.secondary li
 {
     display: table-cell;
     text-align: center;
@@ -64,12 +66,25 @@ legend
 .attributes-list.primary label
 {
     display: block;
-    font-weight: bold;
 }
 
-.attributes-list.primary input
+.attributes-list.secondary label
+{
+    display: block;
+    font-size: 11px;
+}
+
+.attributes-list.primary input,
+.attributes-list.secondary input
 {
     border: none;
-    display: block;
+    display: inline-block;
+    font-size: 30px;
     text-align: center;
+    width: 100%;
+}
+
+.attributes-list.secondary input
+{
+    font-size: 20px;
 }
