@@ -5,147 +5,112 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mythras Character Creator</title>
-
-    <style>
-        html
-        {
-            font-family: sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 <body>
-    
     <h1>Mythras Character Creator</h1>
 
-    <fieldset>
-        <legend>Characteristics</legend>
+    <div class="page-container">
+        <fieldset>
+            <legend>Characteristics</legend>
+    
+            <ul class="attributes-list primary">
+                <li>
+                    <label for="strength"><abbr title="Strength">STR</abbr></label>
+                    <input type="number" id="strength" name="strength">        
+                </li>
+    
+                <li>
+                    <label for="constitution"><abbr title="Constitution">CON</abbr></label>
+                    <input type="number" id="constitution" name="constitution">
+                </li>
+        
+                <li>
+                    <label for="size"><abbr title="Size">SIZ</abbr></label>
+                    <input type="number" id="size" name="size">
+                </li>
+        
+                <li>
+                    <label for="dexterity"><abbr title="Dexterity">DEX</abbr></label>
+                    <input type="number" id="dexterity" name="dexterity">
+                </li>
+        
+                <li>
+                    <label for="intelligence"><abbr title="Intelligence">INT</abbr></label>
+                    <input type="number" id="intelligence" name="intelligence">
+                </li>
+        
+                <li>
+                    <label for="power"><abbr title="Power">POW</abbr></label>
+                    <input type="number" id="power" name="power">
+                </li>
+        
+                <li>
+                    <label for="charisma"><abbr title="Charisma">CHA</abbr></label>
+                    <input type="number" id="charisma" name="charisma">    
+                </li>
+            </ul>
+    
+            <!-- calculated/derived characteristics -->
+            <ul class="attributes-list">
+                <li>
+                    <label>Action Points</label>
+                    <input type="number" name="action_points">
+                </li>
 
-        <label><abbr title="Strength">STR</abbr></label>
-        <input type="number" id="strength" name="strength">
+                <li>
+                    <label>Damage Modifier</label>
+                    <input type="number" name="damage_modifier">
+                </li>
 
-        <label><abbr title="Constitution">CON</abbr></label>
-        <input type="number" id="constitution" name="constitution">
+                <li>
+                    <label><abbr title="Experience">Exp</abbr> Modifier</label>
+                    <input type="number" name="experience_modifier">
+                </li>
 
-        <label><abbr title="Size">SIZ</abbr></label>
-        <input type="number" id="size" name="size">
+                <li>
+                    <label>Healing Rate</label>
+                    <input type="number" name="healing_rate">
+                </li>
 
-        <label><abbr title="Dexterity">DEX</abbr></label>
-        <input type="number" id="dexterity" name="dexterity">
+                <li>
+                    <label>Initiative Bonus</label>
+                    <input type="number" name="initiative_bonus">
+                </li>
 
-        <label><abbr title="Intelligence">INT</abbr></label>
-        <input type="number" id="intelligence" name="intelligence">
+                <li>
+                    <label>Luck Points</label>
+                    <input type="number" name="luck_points">
+                </li>
 
-        <label><abbr title="Power">POW</abbr></label>
-        <input type="number" id="power" name="power">
+                <li>
+                    <label>Magic/Power Points</label>
+                    <input type="number" name="magic_power_points">
+                </li>
+            </ul>
+        </fieldset>
+    
+        <fieldset>
+            <legend>Standard Skills</legend>
+        </fieldset>
+    
+        <fieldset>
+            <legend>Professional Skills</legend>
+        </fieldset>
+    
+        <fieldset>
+            <legend>Passions</legend>
+        </fieldset>
+    
+        <fieldset>
+            <legend>Combat Styles</legend>
+        </fieldset>
+    
+        <fieldset>
+            <legend>Equipment & Notes</legend>
+        </fieldset>
+    </div>
 
-        <label><abbr title="Charisma">CHA</abbr></label>
-        <input type="number" id="charisma" name="charisma">
-
-        <!-- calculated/derived characteristics -->
-
-        <label>Action Points</label>
-        <input type="number" name="action_points">
-
-        <label>Damage Modifier</label>
-        <input type="number" name="damage_modifier">
-
-        <label><abbr title="Experience">Exp</abbr> Modifier</label>
-        <input type="number" name="experience_modifier">
-
-        <label>Healing Rate</label>
-        <input type="number" name="healing_rate">
-
-        <label>Initiative Bonus</label>
-        <input type="number" name="initiative_bonus">
-
-        <label>Luck Points</label>
-        <input type="number" name="luck_points">
-
-        <label>Magic/Power Points</label>
-        <input type="number" name="magic_power_points">
-    </fieldset>
-
-    <fieldset>
-        <legend>Standard Skills</legend>
-    </fieldset>
-
-    <fieldset>
-        <legend>Professional Skills</legend>
-    </fieldset>
-
-    <fieldset>
-        <legend>Passions</legend>
-    </fieldset>
-
-    <fieldset>
-        <legend>Combat Styles</legend>
-    </fieldset>
-
-    <fieldset>
-        <legend>Equipment & Notes</legend>
-    </fieldset>
-
-    <script>
-
-        // setup
-
-        const attribute_keys = {
-            strength: "strength",
-            constitution: "constitution",
-            size: "size",
-            dexterity: "dexterity",
-            intelligence: "intelligence",
-            power: "power",
-            charisma: "charisma"
-        }
-
-        const strength_input = document.getElementById(attribute_keys.strength)
-        const constitution_input = document.getElementById(attribute_keys.constitution)
-        const size_input = document.getElementById(attribute_keys.size)
-        const dexterity_input = document.getElementById(attribute_keys.dexterity)
-        const intelligence_input = document.getElementById(attribute_keys.intelligence)
-        const power_input = document.getElementById(attribute_keys.power)
-        const charisma_input = document.getElementById(attribute_keys.charisma)
-
-        const make_pool = die_sizes => [].concat(die_sizes)
-        const roll_die = sides => Math.floor(Math.random() * sides) + 1
-        const roll_pool = pool => pool.map(roll_die)
-        const sum_pool = pool => pool.reduce((a, b) => a + b)
-        const roll_attribute = (pool, modifier) => sum_pool(roll_pool(pool)) + (modifier ? modifier : 0)
-
-        const pool_2D6 = make_pool([6, 6])
-        const pool_3D6 = make_pool([6, 6, 6])
-
-        const attribute_pool_map = {
-            strength: pool_3D6,
-            constitution: pool_3D6,
-            size: pool_2D6,
-            dexterity: pool_3D6,
-            intelligence: pool_2D6,
-            power: pool_3D6,
-            charisma: pool_3D6
-        }
-
-        // do the math
-
-        let attributes = { strength: 0, constitution: 0, size: 0, dexterity: 0, intelligence: 0, power: 0, charisma: 0 }
-
-        Object.keys(attribute_keys).forEach(a => attributes[attribute_keys[a]] = roll_attribute(attribute_pool_map[attribute_keys[a]]))
-
-        attributes.size += 6
-        attributes.intelligence += 6
-
-        // show the results
-
-        strength_input.value = attributes[attribute_keys.strength]
-        constitution_input.value = attributes[attribute_keys.constitution]
-        size_input.value = attributes[attribute_keys.size]
-        dexterity_input.value = attributes[attribute_keys.dexterity]
-        intelligence_input.value = attributes[attribute_keys.intelligence]
-        power_input.value = attributes[attribute_keys.power]
-        charisma_input.value = attributes[attribute_keys.charisma]
-
-    </script>
-
+    <script type="text/javascript" src="./script.js"></script>
 </body>
 </html>

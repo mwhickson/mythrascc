@@ -1,0 +1,75 @@
+html
+{
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+abbr
+{
+    text-decoration: none;
+}
+
+fieldset
+{
+    border: 0;
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button
+{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"]
+{
+    -moz-appearance: textfield;
+}
+
+legend
+{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.page-container
+{
+    max-width: 100%;
+    width: 100%;
+}
+
+.attributes-list
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.attributes-list.primary
+{
+    margin-bottom: 10px;
+}
+
+.attributes-list.primary li
+{
+    display: table-cell;
+    text-align: center;
+}
+
+.attributes-list.primary label
+{
+    display: block;
+    font-weight: bold;
+}
+
+.attributes-list.primary input
+{
+    border: none;
+    display: block;
+    text-align: center;
+}
