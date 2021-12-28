@@ -9,23 +9,102 @@
 </head>
 <body>
     <div class="page-container">
-        <h1>Mythras Character Creator</h1>
+        <header class="instructions">
+            <h1>Mythras Character Creator</h1>
 
-        <p>
-            A character creator for the <em>Mythras Roleplaying Game</em> by <a href="http://thedesignmechanism.com/">The Design Mechanism</a>.
-        </p>
+            <p>
+                A character creator for the <em>Mythras Roleplaying Game</em> by <a href="http://thedesignmechanism.com/">The Design Mechanism</a>.
+            </p>
+        
+            <p>
+                This tool uses material from the <a href="http://thedesignmechanism.com/store.php#!/Mythras/p/70233425/category=2826223">Mythras Core Rules (TDM110)</a>,
+                <a href="http://thedesignmechanism.com/resources/TDM110%20Mythras%20Imperative%203rd%20Edition%20310721.pdf">Mythras Imperative</a>, and
+                the <a href="http://thedesignmechanism.com/resources/Downloads/Character%20Creation%20Workbook.pdf">Character Creation Workbook</a>.
+            </p>
+        
+            <p>
+                All material presented here remains the property of its respective owners.
+            </p>
+        
+            <hr>
+        </header>
+
+        <header class="primary-header">
+            <div class="portrait-container">
+                <img src="" class="portait" alt="character portrait">
+            </div>
     
-        <p>
-            This tool uses material from the <a href="http://thedesignmechanism.com/store.php#!/Mythras/p/70233425/category=2826223">Mythras Core Rules (TDM110)</a>,
-            <a href="http://thedesignmechanism.com/resources/TDM110%20Mythras%20Imperative%203rd%20Edition%20310721.pdf">Mythras Imperative</a>, and
-            the <a href="http://thedesignmechanism.com/resources/Downloads/Character%20Creation%20Workbook.pdf">Character Creation Workbook</a>.
-        </p>
+            <div class="basic-info-container">
+                <p>
+                    <label for="player" class="width-24">Player</label>
+                    <input type="text" id="player" name="player" class="padding-3 width-74">
+                </p>
+        
+                <p>
+                    <label for="character" class="width-24">Character</label>
+                    <input type="text" id="character" name="character" class="padding-3 width-74">
+                </p>
+        
+                <ul class="attributes-list secondary">
+                    <li style="text-align: left;">
+                        <label for="xculture">Culture</label>
+                        <input type="text" id="xculture" name="xculture" style="text-align: left;">
+                    </li>
+        
+                    <li style="text-align: left;">
+                        <label for="career">Career</label>
+                        <input type="text" id="career" name="career" style="text-align: left;">
+                    </li>
+        
+                    <li style="text-align: left;">
+                        <label for="age">Age</label>
+                        <input type="text" id="age" name="age" style="text-align: left;">
+                    </li>
+                </ul>
+
+                <div>
+                    <p class="list-title-inline">Hit Points</p>
     
-        <p>
-            All material presented here remains the property of its respective owners.
-        </p>
-    
-        <hr>
+                    <ul class="attributes-list hit-points">
+                        <li>
+                            <label for="right_leg">Right leg<br>(1-3)</label>
+                            <input type="number" id="right_leg" name="right_leg">
+                            <input type="number" id="right_leg_armor" name="right_leg_armor">
+                        </li>
+                        <li>
+                            <label for="left_leg">Left leg<br>(4-6)</label>
+                            <input type="number" id="left_leg" name="left_leg">
+                            <input type="number" id="left_leg_armor" name="left_leg_armor">
+                        </li>
+                        <li>
+                            <label for="abdomen">Abdomen<br>(7-9)</label>
+                            <input type="number" id="abdomen" name="abdomen">
+                            <input type="number" id="abdomen_armor" name="abdomen_armor">
+                        </li>
+                        <li>
+                            <label for="chest">Chest<br>(10-12)</label>
+                            <input type="number" id="chest" name="chest">
+                            <input type="number" id="chest_armor" name="chest_armor">
+                        </li>
+                        <li>
+                            <label for="right_arm">Right arm<br>(13-15)</label>
+                            <input type="number" id="right_arm" name="right_arm">
+                            <input type="number" id="right_arm_armor" name="right_arm_armor">
+                        </li>
+                        <li>
+                            <label for="left_arm">Left arm<br>(16-18)</label>
+                            <input type="number" id="left_arm" name="left_arm">
+                            <input type="number" id="left_arm_armor" name="left_arm_armor">
+                        </li>
+                        <li>
+                            <label for="head">Head<br>(19-20)</label>
+                            <input type="number" id="head" name="head">
+                            <input type="number" id="head_armor" name="head_armor">
+                        </li>
+                    </ul>
+                </div>   
+            </div>
+        </header>
 
         <fieldset>
             <legend>Characteristics</legend>
@@ -103,33 +182,6 @@
                     <input type="number" id="magic_power_points" name="magic_power_points">
                 </li>
             </ul>
-
-            <div style="padding-top: 10px;">
-                <p class="list-title-inline">Hit Points</p>
-
-                <ul class="attributes-list hit-points">
-                    <li>
-                        <label for="head">Head</label>
-                        <input type="number" id="head" name="head">
-                    </li>
-                    <li>
-                        <label for="chest">Chest</label>
-                        <input type="number" id="chest" name="chest">
-                    </li>
-                    <li>
-                        <label for="abdomen">Abdomen</label>
-                        <input type="number" id="abdomen" name="abdomen">
-                    </li>
-                    <li>
-                        <label for="each_arm">Each arm</label>
-                        <input type="number" id="each_arm" name="each_arm">
-                    </li>
-                    <li>
-                        <label for="each_leg">Each leg</label>
-                        <input type="number" id="each_leg" name="each_leg">
-                    </li>
-                </ul>
-            </div>
         </fieldset>
     
         <fieldset>

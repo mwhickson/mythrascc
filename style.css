@@ -24,6 +24,22 @@ hr
     height: 1px;
 }
 
+img.portrait
+{
+    border: 0;
+    display: block;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+input
+{
+    background-color: #e5e5e5;
+    border: 0;
+}
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button
 {
@@ -44,12 +60,91 @@ legend
     text-transform: uppercase;
 }
 
+.padding-3
+{
+    padding: 3px;
+}
+
+.padding-5
+{
+    padding: 5px;
+}
+
+.width-24
+{
+    display: inline-block;
+    margin: auto 0;
+    width: 24%;
+}
+
+.width-32
+{
+    display: inline-block;
+    margin: auto 0;
+    width: 32%;
+}
+
+.width-49
+{
+    display: inline-block;
+    margin: auto 0;
+    width: 49%;
+}
+
+.width-65
+{
+    display: inline-block;
+    margin: auto 0;
+    width: 65%;
+}
+
+.width-74
+{
+    display: inline-block;
+    margin: auto 0;
+    width: 74%;
+}
+
+.width-100
+{
+    display: block;
+    margin: auto 0;
+    width: 100%;
+}
+
 .page-container
 {
     margin: 0 auto;
     max-width: 1024px;
     width: 100%;
 }
+
+.primary-header
+{
+    margin-bottom: 20px;
+}
+
+.portrait-container
+{
+    background-color: #e5e5e5;
+    display: table-cell;
+    height: 200px;
+    width: 200px;
+}
+
+.basic-info-container
+{
+    display: table-cell;
+    padding-left: 20px;
+    width: calc(100% - 250px);
+}
+
+/*
+.basic-info-container p
+{
+    display: inline-block;
+}
+*/
 
 .list-title,
 .list-title-inline
@@ -134,4 +229,18 @@ legend
     border: none;
     display: inline-block;
     width: 25px;
+}
+
+@media print 
+{
+    input
+    {
+        background-color: transparent;
+    }
+
+    .instructions
+    {
+        display: none;
+        visibility: hidden;
+    }        
 }

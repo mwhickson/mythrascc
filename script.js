@@ -156,17 +156,21 @@ const calc_hit_points = (con, siz) => {
         head: 0,
         chest: 0,
         abdomen: 0,
-        each_arm: 0,
-        each_leg: 0
-    }
+        right_arm: 0,
+        left_arm: 0,
+        right_leg: 0,
+        left_leg: 0
+}
 
     if (in_numeric_range(total, 1, 5)) {
         hit_points = {
             head: 1,
             chest: 3,
             abdomen: 2,
-            each_arm: 1,
-            each_leg: 1
+            right_arm: 1,
+            left_arm: 1,
+            right_leg: 1,
+            left_leg: 1
         }
     }
     else if (in_numeric_range(total, 6, 10)) {
@@ -174,8 +178,10 @@ const calc_hit_points = (con, siz) => {
             head: 2,
             chest: 4,
             abdomen: 3,
-            each_arm: 1,
-            each_leg: 2
+            right_arm: 1,
+            left_arm: 1,
+            right_leg: 2,
+            left_leg: 2
         }
     }
     else if (in_numeric_range(total, 11, 15)) {
@@ -183,8 +189,10 @@ const calc_hit_points = (con, siz) => {
             head: 3,
             chest: 5,
             abdomen: 4,
-            each_arm: 2,
-            each_leg: 3
+            right_arm: 2,
+            left_arm: 2,
+            right_leg: 3,
+            left_leg: 3
         }
     }
     else if (in_numeric_range(total, 16, 20)) {
@@ -192,8 +200,10 @@ const calc_hit_points = (con, siz) => {
             head: 4,
             chest: 6,
             abdomen: 5,
-            each_arm: 3,
-            each_leg: 4
+            right_arm: 3,
+            left_arm: 3,
+            right_leg: 4,
+            left_leg: 4
         }
     }
     else if (in_numeric_range(total, 21, 25)) {
@@ -201,8 +211,10 @@ const calc_hit_points = (con, siz) => {
             head: 5,
             chest: 7,
             abdomen: 6,
-            each_arm: 4,
-            each_leg: 5
+            right_arm: 4,
+            left_arm: 4,
+            right_leg: 5,
+            left_leg: 5
         }
     }
     else if (in_numeric_range(total, 26, 30)) {
@@ -210,8 +222,10 @@ const calc_hit_points = (con, siz) => {
             head: 6,
             chest: 8,
             abdomen: 7,
-            each_arm: 5,
-            each_leg: 6
+            right_arm: 5,
+            left_arm: 5,
+            right_leg: 6,
+            left_leg: 6
         }
     }
     else if (in_numeric_range(total, 31, 35)) {
@@ -219,8 +233,10 @@ const calc_hit_points = (con, siz) => {
             head: 7,
             chest: 9,
             abdomen: 8,
-            each_arm: 6,
-            each_leg: 7
+            right_arm: 6,
+            left_arm: 6,
+            right_leg: 7,
+            left_leg: 7
         }
     }
     else if (in_numeric_range(total, 36, 40)) {
@@ -228,8 +244,10 @@ const calc_hit_points = (con, siz) => {
             head: 8,
             chest: 10,
             abdomen: 9,
-            each_arm: 7,
-            each_leg: 8
+            right_arm: 7,
+            left_arm: 7,
+            right_leg: 8,
+            left_leg: 8
         }
     }
     else {
@@ -276,8 +294,10 @@ let attributes = {
             head: 0,
             chest: 0,
             abdomen: 0,
-            each_arm: 0,
-            each_leg: 0
+            right_arm: 0,
+            left_arm: 0,
+            right_leg: 0,
+            left_leg: 0
         }
     },
     skills: {
@@ -452,8 +472,10 @@ const magic_power_points_input = document.getElementById(attribute_keys.secondar
 const head_input = document.getElementById("head")
 const chest_input = document.getElementById("chest")
 const abdomen_input = document.getElementById("abdomen")
-const each_arm_input = document.getElementById("each_arm")
-const each_leg_input = document.getElementById("each_leg")
+const right_arm_input = document.getElementById("right_arm")
+const left_arm_input = document.getElementById("left_arm")
+const right_leg_input = document.getElementById("right_leg")
+const left_leg_input = document.getElementById("left_leg")
 
 const standard_skills_athletics_input = document.getElementById(standard_skills.athletics.id)
 const standard_skills_boating_input = document.getElementById(standard_skills.boating.id)
@@ -602,8 +624,10 @@ magic_power_points_input.value = attributes.secondary[attribute_keys.secondary.m
 head_input.value = attributes.secondary["hit_points"].head
 chest_input.value = attributes.secondary["hit_points"].chest
 abdomen_input.value = attributes.secondary["hit_points"].abdomen
-each_arm_input.value = attributes.secondary["hit_points"].each_arm
-each_leg_input.value = attributes.secondary["hit_points"].each_leg
+right_arm_input.value = attributes.secondary["hit_points"].right_arm
+left_arm_input.value = attributes.secondary["hit_points"].left_arm
+right_leg_input.value = attributes.secondary["hit_points"].right_leg
+left_leg_input.value = attributes.secondary["hit_points"].left_leg
 
 standard_skills_athletics_input.value = attributes.skills.standard[standard_skills.athletics.id]
 standard_skills_boating_input.value = attributes.skills.standard[standard_skills.boating.id]
