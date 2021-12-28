@@ -51,7 +51,8 @@ legend
 }
 
 .attributes-list.primary,
-.attributes-list.secondary
+.attributes-list.secondary,
+.attributes-list.skills
 {
     margin-bottom: 10px;
 }
@@ -74,6 +75,12 @@ legend
     font-size: 11px;
 }
 
+.attributes-list.skills label
+{
+    display: inline-block;
+    width: 125px;
+}
+
 .attributes-list.primary input,
 .attributes-list.secondary input
 {
@@ -87,4 +94,11 @@ legend
 .attributes-list.secondary input
 {
     font-size: 20px;
+}
+
+.attributes-list.skills input
+{
+    border: none;
+    display: inline-block;
+    width: 25px;
 }
