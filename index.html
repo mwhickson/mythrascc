@@ -184,7 +184,7 @@
             </ul>
         </fieldset>
     
-        <fieldset>
+        <fieldset class="width-32" style="vertical-align: top;">
             <legend>Standard Skills</legend>
 
             <ul class="attributes-list skills">
@@ -300,7 +300,8 @@
             </ul>
         </fieldset>
     
-        <fieldset>
+        <!-- TODO: fix this... Professional skills must be selected... -->
+        <fieldset class="width-32" style="max-height: 450px; overflow: hidden; vertical-align: top;">
             <legend>Professional Skills</legend>
 
             <ul class="attributes-list skills">
@@ -501,17 +502,19 @@
             </ul>
         </fieldset>
     
-        <fieldset>
-            <legend>Passions</legend>
-        </fieldset>
-    
-        <fieldset>
-            <legend>Combat Styles</legend>
-        </fieldset>
-    
-        <fieldset>
-            <legend>Equipment & Notes</legend>
-        </fieldset>
+        <div class="width-32" style="vertical-align: top;">
+            <fieldset>
+                <legend>Passions</legend>
+            </fieldset>
+        
+            <fieldset>
+                <legend>Combat Styles</legend>
+            </fieldset>
+        
+            <fieldset>
+                <legend>Equipment & Notes</legend>
+            </fieldset>    
+        </div>
     </div>
 
     <script type="text/javascript" src="./script.js"></script>
