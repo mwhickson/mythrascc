@@ -112,7 +112,7 @@ const roll_attribute = (pool, modifier) => sum_pool(roll_pool(pool)) + (modifier
 
 const calc_action_points = (int, dex) => Math.floor((int + dex) / 12) + 1
 const calc_damage_modifier = (str, siz) => {
-    let total = str + siz
+    let total = sum_values([str, siz])
     let modifier = ""
 
     if (in_numeric_range(total, 0, 5)) {
@@ -150,6 +150,94 @@ const calc_healing_rate = (con) => Math.floor(con / 6) + 1
 const calc_initiative_bonus = (int, dex) => halve(sum_values([int, dex]))
 const calc_magic_points = (pow) => pow
 const calc_luck_points = (pow) => Math.floor(pow / 6) + 1
+const calc_hit_points = (con, siz) => {
+    let total = sum_values([con, siz])
+    let hit_points = {
+        head: 0,
+        chest: 0,
+        abdomen: 0,
+        each_arm: 0,
+        each_leg: 0
+    }
+
+    if (in_numeric_range(total, 1, 5)) {
+        hit_points = {
+            head: 1,
+            chest: 3,
+            abdomen: 2,
+            each_arm: 1,
+            each_leg: 1
+        }
+    }
+    else if (in_numeric_range(total, 6, 10)) {
+        hit_points = {
+            head: 2,
+            chest: 4,
+            abdomen: 3,
+            each_arm: 1,
+            each_leg: 2
+        }
+    }
+    else if (in_numeric_range(total, 11, 15)) {
+        hit_points = {
+            head: 3,
+            chest: 5,
+            abdomen: 4,
+            each_arm: 2,
+            each_leg: 3
+        }
+    }
+    else if (in_numeric_range(total, 16, 20)) {
+        hit_points = {
+            head: 4,
+            chest: 6,
+            abdomen: 5,
+            each_arm: 3,
+            each_leg: 4
+        }
+    }
+    else if (in_numeric_range(total, 21, 25)) {
+        hit_points = {
+            head: 5,
+            chest: 7,
+            abdomen: 6,
+            each_arm: 4,
+            each_leg: 5
+        }
+    }
+    else if (in_numeric_range(total, 26, 30)) {
+        hit_points = {
+            head: 6,
+            chest: 8,
+            abdomen: 7,
+            each_arm: 5,
+            each_leg: 6
+        }
+    }
+    else if (in_numeric_range(total, 31, 35)) {
+        hit_points = {
+            head: 7,
+            chest: 9,
+            abdomen: 8,
+            each_arm: 6,
+            each_leg: 7
+        }
+    }
+    else if (in_numeric_range(total, 36, 40)) {
+        hit_points = {
+            head: 8,
+            chest: 10,
+            abdomen: 9,
+            each_arm: 7,
+            each_leg: 8
+        }
+    }
+    else {
+        // PASS: leave as is
+    }
+
+    return hit_points
+}
 
 const pool_2D6 = make_pool([D6, D6])
 const pool_3D6 = make_pool([D6, D6, D6])
@@ -183,7 +271,14 @@ let attributes = {
         healing_rate: 0,
         initiative_bonus: 0,
         luck_points: 0,
-        magic_power_points: 0
+        magic_power_points: 0,
+        hit_points: {
+            head: 0,
+            chest: 0,
+            abdomen: 0,
+            each_arm: 0,
+            each_leg: 0
+        }
     },
     skills: {
         standard: {
@@ -271,6 +366,7 @@ attributes.secondary.healing_rate = calc_healing_rate(attributes.primary.constit
 attributes.secondary.initiative_bonus = calc_initiative_bonus(attributes.primary.intelligence, attributes.primary.dexterity)
 attributes.secondary.magic_power_points = calc_magic_points(attributes.primary.power)
 attributes.secondary.luck_points = calc_luck_points(attributes.primary.power)
+attributes.secondary.hit_points = calc_hit_points(attributes.primary.constitution, attributes.primary.size)
 
 attributes.skills.standard.athletics = standard_skills.athletics.fn_calc_default(attributes.primary.strength, attributes.primary.dexterity)
 attributes.skills.standard.boating = standard_skills.boating.fn_calc_default(attributes.primary.strength, attributes.primary.constitution)
@@ -352,6 +448,12 @@ const healing_rate_input = document.getElementById(attribute_keys.secondary.heal
 const initiative_bonus_input = document.getElementById(attribute_keys.secondary.initiative_bonus)
 const luck_points_input = document.getElementById(attribute_keys.secondary.luck_points)
 const magic_power_points_input = document.getElementById(attribute_keys.secondary.magic_power_points)
+
+const head_input = document.getElementById("head")
+const chest_input = document.getElementById("chest")
+const abdomen_input = document.getElementById("abdomen")
+const each_arm_input = document.getElementById("each_arm")
+const each_leg_input = document.getElementById("each_leg")
 
 const standard_skills_athletics_input = document.getElementById(standard_skills.athletics.id)
 const standard_skills_boating_input = document.getElementById(standard_skills.boating.id)
@@ -496,6 +598,12 @@ healing_rate_input.value = attributes.secondary[attribute_keys.secondary.healing
 initiative_bonus_input.value = attributes.secondary[attribute_keys.secondary.initiative_bonus]
 luck_points_input.value = attributes.secondary[attribute_keys.secondary.luck_points]
 magic_power_points_input.value = attributes.secondary[attribute_keys.secondary.magic_power_points]
+
+head_input.value = attributes.secondary["hit_points"].head
+chest_input.value = attributes.secondary["hit_points"].chest
+abdomen_input.value = attributes.secondary["hit_points"].abdomen
+each_arm_input.value = attributes.secondary["hit_points"].each_arm
+each_leg_input.value = attributes.secondary["hit_points"].each_leg
 
 standard_skills_athletics_input.value = attributes.skills.standard[standard_skills.athletics.id]
 standard_skills_boating_input.value = attributes.skills.standard[standard_skills.boating.id]
